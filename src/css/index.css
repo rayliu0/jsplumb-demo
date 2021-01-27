@@ -1,0 +1,52 @@
+.min-height{
+  height: 3000px;
+}
+.btn{
+  z-index: 2;
+}
+.pa{
+  position: absolute;
+}
+.fixed-node{
+  position: absolute;
+  top: 80px;
+  left: 150px;
+}
+
+#end-node{
+  left: 150px;
+  top: 700px;
+}
+.panel-node{
+  width: 150px;
+  display: inline-block;
+  margin: auto 25px;
+}
+.panel-node-list{
+  padding: 10px 10px;
+}
+.delete-node{
+  cursor: pointer;
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+}
+.delete-node:hover{
+  color: red
+}
+
+.node-source {
+  margin-top: 20px;
+}
+
+.btn-w3r{
+  width: 80px;
+  height: 80px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+  background: #cb60b3;
+  color: aliceblue;
+}
