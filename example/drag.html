@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag or Drop</title>
+</head>
+<body>
+  <!-- 
+    拖动事件：
+      - dragstart 在元素开始被拖动时触发
+      - dragend 在拖动操作完成时触发
+      - drag 在元素被拖动时触发
+      释放区事件：
+      
+      dragenter 被拖动元素进入到释放区所占据得屏幕空间时触发
+      dragover 当被拖动元素在释放区内移动时触发
+      dragleave 当被拖动元素没有放下就离开释放区时触发
+      drop 当被拖动元素在释放区里放下时触发
+   -->
+  <div class="box">
+    <img id="one" draggable="true" src="./assets/bigdot.png" alt="">
+    <img id="two" draggable="true" src="./assets/littledot.png" alt="">
+    <div class="drop"></div>
+</div>
+<script>
+    var box = document.getElementByclassName('box')[0];
+    var drop = document.getElementsByClassName('drop')[0];
+    box.ondragstart = function (e) {
+        console.log('dragstart');
+        e.dataTransfer.setData('id',e.target.id);
+    } 
+    box.ondrag = function (e) {
+        console.log('drag',e.target.id);
+    }
+    box.ondragend = function (e) {
+        console.log('dragend')
+    }
+    drop.ondragenter = function (e) {
+        console.log('dragenter');
+        e.preventDefault();
+    }
+    drop.ondragover = function (e) {
+        console.log('dragover');
+        e.preventDefault();
+        drop.innerHTML = '';
+    }
+    drop.ondragleave = function (e) {
+        console.log('dragleave');
+        e.preventDefault();
+    }
+    drop.ondrop = function (e) {
+        console.log('drop');
+        var imgId = e.dataTransfer.getData('id');
+        var img = document.getElementById(imgId).cloneNode(true);
+        drop.appendChild(img);
+    }
+</script>
+</body>
+</html>
